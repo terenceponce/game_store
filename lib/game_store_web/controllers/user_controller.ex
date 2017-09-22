@@ -22,6 +22,7 @@ defmodule GameStoreWeb.UserController do
     case Repo.insert(changeset) do
       {:ok, user} ->
         conn
+        |> GameStore.Auth.login(user)
         |> put_flash(:info, "User created!")
         |> redirect(to: user_path(conn, :show, user))
       {:error, changeset} ->
