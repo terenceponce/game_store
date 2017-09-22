@@ -41,6 +41,6 @@ defmodule GameStoreWeb.SessionController do
 
   defp login(conn, user) do
     conn
-    |> GameStore.Guardian.Plug.sign_in(user)
+    |> Guardian.Plug.sign_in(user)
   end
 end
